@@ -1,4 +1,9 @@
 dist: bionic
+addons:
+  apt:
+    packages:
+      - python3-pip
+
 script:
 - echo "Hello World!"
 after_script:
