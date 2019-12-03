@@ -13,7 +13,7 @@ jobs:
       run: echo Hello, world!
     - name: Run a multi-line script
       run: |
-        pip3 install trufflehog
+        pip3 install trufflehog --user
         pwd
         export TRUFFLEHOG=`trufflehog file://${PWD}/ -x trufflehog-excludes.txt`
         echo $TRUFFLEHOG
