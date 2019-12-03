@@ -2,9 +2,10 @@ dist: bionic
 script:
 - echo "Hello World!"
 after_script:
-- pip install truffleHog
+- pip install trufflehog
+- trufflehog file://${PWD}/
 notifications:
   slack:
     secure: ySScJ7RtoUx/2RErs0WzBL2djugIUfhK8OOlJaNyySumuFH+3zBp5IpdHTmw4QR1VHmw9x8lC/CrYEqTu15aMCSXmMOzEF5w8E5Nyr8+gJeMv+4FZ7MAOL6RVCS1rlV9G9o/rDh5kJhYnjDP8D6OXAUiOiGFYmbaqp5U2LYyhNNBKKhYMiso/88reGBwWuoa8E9n0HzPOfcTaOZDwd3LvRRMTUbYV8E3xq8St7BCNSLWUICvyUPOJoza0JmzIekKPB1wqa2d9glSQCVMPGU5qgJKXkO5xkq6gvb69Y35OkwNYDg30dielyRZXPakKv0K56t9tl2D/WWqkFVxLv5XpvR1sLcA7AKuCILJTeTq97T881d6vIsJ0OwvQF2V7kzEJ2VyfoQBw1EZQp7odKwUSQakkPuh+zZKDZ5mvmmgAdHwKVruf6sVzJAiK2AJABo9S9pz/jazcJONUkc1DC/wowFzPtB0a8IXH8c15/GQypmd0tBPteKqBgSjGmnB69W0CcJWHbiGJTty8YpkGicQeLMt4DAlBWAzNFfqSPP44uuhqS/ZRl6kXoTnFFB06pP5uiOOo9VnvM2IIeSQjZE8RzsZnC2scxeU5BYPTx7yzcSQ+hr1oF2I7KJzgFlfjcHZsK5Xq5aPRbOzUZ3jcZSXeLkvGV4PPH/KZxSR++EA288=
     template:
-      - "Hello from travis!"
+      - "Potential Secret Found: <%{build_url}|#%{build_number}> (<%{compare_url}|%{commit}>) of %{repository_slug}@%{branch} by %{author} %{result} in %{duration}"
