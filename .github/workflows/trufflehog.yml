@@ -19,9 +19,9 @@ jobs:
         id
         export PATH=$PATH:~/.local/bin
         echo ${PWD}
-        trufflehog file://${PWD}/
+        trufflehog -x trufflehog-excludes file://${PWD}/
         export SECRETFOUND=true
-        export TRUFFLEHOG=`trufflehog file://${PWD}/`e
+        export TRUFFLEHOG=`trufflehog -x trufflehog-excludes file://${PWD}/`
         echo $TRUFFLEHOG
         if [[ -z $TRUFFLEHOG ]]; then SECRETFOUND=false; fi
         echo $SECRETFOUND
