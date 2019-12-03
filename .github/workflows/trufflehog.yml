@@ -23,7 +23,7 @@ jobs:
         export SECRETFOUND=true
         export TRUFFLEHOG=`trufflehog file://${PWD}/`e
         echo $TRUFFLEHOG
-        if [[ -z $TRUFFLEHOG ]]; then TEST=false; fi
+        if [[ -z $TRUFFLEHOG ]]; then SECRETFOUND=false; fi
         echo $SECRETFOUND
         if $SECRETFOUND; then exit 1; fi
     - name: Slack notification
