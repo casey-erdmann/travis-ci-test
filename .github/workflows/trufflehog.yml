@@ -16,3 +16,10 @@ jobs:
         echo Add other actions to build,
         echo test, and deploy your project.
         pip3 install trufflehog
+    - name: Slack notification
+      env:
+        SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+      uses: Ilshidur/action-slack@master
+      with:
+        args: 'Testing from github actions'
+        
