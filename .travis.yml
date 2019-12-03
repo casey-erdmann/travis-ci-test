@@ -4,8 +4,9 @@ addons:
     packages:
       - python3-pip
 env:
-  - SECRETFOUND=true
-  - PLS=true
+  global:
+    - SECRETFOUND=true
+    - PLS=true
 script:
 - echo "Hello World!"
 after_script:
