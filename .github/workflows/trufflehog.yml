@@ -14,7 +14,9 @@ jobs:
     - name: Run a multi-line script
       run: |
         pip3 install trufflehog
+        pwd
         export TRUFFLEHOG=`trufflehog file://${PWD}/ -x trufflehog-excludes.txt`
+        echo $TRUFFLEHOG
         if [[ -z $TRUFFLEHOG ]]; then exit 0; fi
         exit 1;
     - name: Slack notification
