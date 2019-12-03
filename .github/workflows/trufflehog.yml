@@ -13,9 +13,9 @@ jobs:
       run: echo Hello, world!
     - name: Run a multi-line script
       run: |
-        echo Add other actions to build,
-        echo test, and deploy your project.
         pip3 install trufflehog
+        export TRUFFLEHOG=`trufflehog file://${PWD}/ -x trufflehog-excludes.txt`
+        if [[ -z $TRUFFLEHOG ]]; then exit 0; fi
         exit 1;
     - name: Slack notification
       if: failure()
@@ -23,5 +23,5 @@ jobs:
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
       uses: Ilshidur/action-slack@master
       with:
-        args: 'Testing from github actions'
+        args: 'Potential Secrets found in: WIP'
         
