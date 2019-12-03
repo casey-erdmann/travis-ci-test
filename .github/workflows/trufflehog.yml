@@ -27,5 +27,5 @@ jobs:
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
       uses: Ilshidur/action-slack@master
       with:
-        args: 'Potential Secrets found in: https://github.com/${{ GITHUB_REPOSITORY }}/commit/${{ GITHUB_SHA }} '
+        args: 'Potential Secrets found in: https://github.com/{{ GITHUB_REPOSITORY }}/commit/{{ GITHUB_SHA }} '
         
