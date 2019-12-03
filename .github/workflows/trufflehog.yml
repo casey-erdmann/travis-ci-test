@@ -16,7 +16,8 @@ jobs:
         pip3 install trufflehog --user
         export PATH=$PATH:~/.local/bin
         export SECRETFOUND=true
-        export TRUFFLEHOG=`trufflehog -x trufflehog-excludes.txt file://${PWD}/`
+        trufflehog https://github.com/casey-erdmann/travis-ci-test
+        export TRUFFLEHOG=`trufflehog -x trufflehog-excludes.txt https://github.com/casey-erdmann/travis-ci-test`
         echo $TRUFFLEHOG
         if [[ -z $TRUFFLEHOG ]]; then SECRETFOUND=false; fi
         echo $SECRETFOUND
