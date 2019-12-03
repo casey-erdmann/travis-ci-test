@@ -16,7 +16,7 @@ jobs:
         echo Add other actions to build,
         echo test, and deploy your project.
         pip3 install trufflehog
-        exit 0;
+        exit 1;
     - name: Slack notification
       if: failure()
       env:
