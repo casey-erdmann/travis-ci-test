@@ -15,7 +15,7 @@ jobs:
       run: |
         pip3 install trufflehog --user
         pwd
-        ls -la ~/.local/bin
+        ls -la
         id
         export PATH=$PATH:~/.local/bin
         export TRUFFLEHOG=`trufflehog file://${PWD}/ -x trufflehog-excludes.txt`
