@@ -11,6 +11,8 @@ after_script:
 - export TRUFFLEHOG=`trufflehog file://${PWD}/ -x trufflehog-excludes.txt`
 - export SECRETFOUND=true
 - if [[ -z $TRUFFLEHOG ]]; then SECRETFOUND=false; fi
+- echo $TRUFFLEHOG
+- echo $SECRETFOUND
 notifications:
   slack:
     if: env(SECRETFOUND) = true
