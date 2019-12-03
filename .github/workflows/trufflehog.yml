@@ -16,7 +16,9 @@ jobs:
         echo Add other actions to build,
         echo test, and deploy your project.
         pip3 install trufflehog
+        exit 0;
     - name: Slack notification
+      if: failure()
       env:
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
       uses: Ilshidur/action-slack@master
