@@ -10,7 +10,7 @@ after_script:
 - pip3 install trufflehog --user
 - export TRUFFLEHOG=`trufflehog file://${PWD}/ -x trufflehog-excludes.txt`
 - export SECRETFOUND=true
-- [[ -z $TRUFFLEHOG ]] && SECRETFOUND=false
+- if [[ -z $TRUFFLEHOG ]]; then SECRETFOUND=false; fi
 notifications:
   slack:
     if: env(SECRETFOUND) = true
