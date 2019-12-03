@@ -2,7 +2,7 @@ dist: bionic
 script:
 - echo "Hello World!"
 after_script:
-- pip install trufflehog
+- pip3 install trufflehog --user
 - trufflehog file://${PWD}/
 notifications:
   slack:
