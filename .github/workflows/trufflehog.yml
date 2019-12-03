@@ -9,15 +9,19 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - name: Run a one-line script
-      run: echo Hello, world!
     - name: Run a multi-line script
-      run: |
+      run:
+        export REPO_NAME = 'travis-ci-test'
+        export REPO_URL = 'https://github.com/${GITHUB_REPOSITORY}'
+        git clone ${REPO_URL}
+        cd $REPO_NAME
+        git checkout ${GITHUB_SHA}
+        cd ..
         pip3 install trufflehog --user
         export PATH=$PATH:~/.local/bin
         export SECRETFOUND=true
-        trufflehog https://github.com/casey-erdmann/travis-ci-test
-        export TRUFFLEHOG=`trufflehog -x trufflehog-excludes.txt https://github.com/casey-erdmann/travis-ci-test`
+        trufflehog ${REPO_NAME}
+        export TRUFFLEHOG=`trufflehog -x trufflehog-excludes.txt ${REPO_NAME}`
         echo $TRUFFLEHOG
         if [[ -z $TRUFFLEHOG ]]; then SECRETFOUND=false; fi
         echo $SECRETFOUND
