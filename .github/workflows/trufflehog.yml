@@ -19,8 +19,8 @@ jobs:
         id
         export PATH=$PATH:~/.local/bin
         echo ${PWD}
-        trufflehog file://{$GITHUB_WORKSPACE}/
-        export TRUFFLEHOG=`trufflehog file://{$GITHUB_WORKSPACE}/`
+        trufflehog file://$GITHUB_WORKSPACE/
+        export TRUFFLEHOG=`trufflehog file://$GITHUB_WORKSPACE/`
         echo $TRUFFLEHOG
         if [[ -z $TRUFFLEHOG ]]; then exit 0; fi
         exit 1;
