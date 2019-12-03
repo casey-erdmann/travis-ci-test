@@ -14,12 +14,7 @@ jobs:
     - name: Run a multi-line script
       run: |
         pip3 install trufflehog --user
-        pwd
-        ls -la
-        id
         export PATH=$PATH:~/.local/bin
-        echo ${PWD}
-        trufflehog -x trufflehog-excludes.txt file://${PWD}/
         export SECRETFOUND=true
         export TRUFFLEHOG=`trufflehog -x trufflehog-excludes.txt file://${PWD}/`
         echo $TRUFFLEHOG
@@ -32,5 +27,5 @@ jobs:
         SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
       uses: Ilshidur/action-slack@master
       with:
-        args: 'Potential Secrets found in: WIP'
+        args: 'Potential Secrets found in: https://github.com/${{ GITHUB_REPOSITORY }}/commit/${{ GITHUB_SHA }} '
         
