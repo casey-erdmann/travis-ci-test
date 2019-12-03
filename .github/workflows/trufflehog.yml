@@ -20,12 +20,12 @@ jobs:
         export PATH=$PATH:~/.local/bin
         echo ${PWD}
         trufflehog file://${PWD}/
-        export TEST=false
+        export SECRETFOUND=true
         export TRUFFLEHOG=`trufflehog file://${PWD}/`e
         echo $TRUFFLEHOG
-        if [[ -z $TRUFFLEHOG ]]; then TEST=true; fi
-        echo $TEST
-        exit 1;
+        if [[ -z $TRUFFLEHOG ]]; then TEST=false; fi
+        echo $SECRETFOUND
+        if $SECRETFOUND; then exit 1; fi
     - name: Slack notification
       if: failure()
       env:
