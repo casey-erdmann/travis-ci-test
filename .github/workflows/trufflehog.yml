@@ -10,7 +10,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Run a multi-line script
-      run:
+      run: |
         pip3 install trufflehog --user
         export PATH=$PATH:~/.local/bin
         export SECRETFOUND=true
