@@ -14,8 +14,8 @@ jobs:
         pip3 install trufflehog --user
         export PATH=$PATH:~/.local/bin
         export SECRETFOUND=true
-        trufflehog file://${PWD}/ --repo_path= ${PWD} --since_commit ${GITHUB_SHA} --max_depth 1
-        export TRUFFLEHOG=`trufflehog file://${PWD}/ --repo_path= ${PWD} --since_commit ${GITHUB_SHA} --max_depth 1`
+        trufflehog file://${PWD}/ --repo_path ${PWD} --since_commit ${GITHUB_SHA} --max_depth 1
+        export TRUFFLEHOG=`trufflehog file://${PWD}/ --repo_path ${PWD} --since_commit ${GITHUB_SHA} --max_depth 1`
         echo $TRUFFLEHOG
         if [[ -z $TRUFFLEHOG ]]; then SECRETFOUND=false; fi
         echo $SECRETFOUND
