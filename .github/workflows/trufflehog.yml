@@ -12,7 +12,7 @@ jobs:
       run: |
         git init ${GITHUB_REPOSITORY}
         cd ${GITHUB_REPOSITORY}
-        git remote add origin https://github.com/${ GITHUB_REPOSITORY}
+        git remote add origin https://github.com/${GITHUB_REPOSITORY}
         git fetch --depth 1 origin ${GITHUB_SHA}  
         pip3 install trufflehog --user
         export PATH=$PATH:~/.local/bin
