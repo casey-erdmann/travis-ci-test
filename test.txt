@@ -1,1 +1,4 @@
-AWS_KEY="TH1S1S4F4K3K3Y"
+[default]
+aws_access_key_id = AKIA35OHX2DSIFMFJGGG
+aws_secret_access_key = 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
+output = json
