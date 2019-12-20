@@ -167,7 +167,6 @@ title = "gitleaks config"
 	description = "image whitelists"
 	file = '''(.*?)(jpg|gif|doc|pdf|bin)$'''
 
-[whitelist]
     description = "ignore gitleak.toml"
     file = "gitleaks.toml"
 
