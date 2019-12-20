@@ -164,9 +164,6 @@ title = "gitleaks config"
     file = '''(?i)(id_rsa|passwd|id_rsa.pub|pgpass|pem|key|shadow)'''
 
 [whitelist]
-	description = "image whitelists"
-	file = '''(.*?)(jpg|gif|doc|pdf|bin)$'''
-
-    description = "ignore gitleak.toml"
-    file = "gitleaks.toml"
+	description = "Custom whitelist to exclude images and gitleaks config"
+	file = '''(.*?)(jpg|gif|doc|pdf|bin)|(gitleaks.toml)$'''
 
