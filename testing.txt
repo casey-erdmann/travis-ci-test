@@ -1,0 +1,4 @@
+[default]
+aws_access_key_id = AKIA35OHX2DSLWABH5Y3
+aws_secret_access_key = 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
+output = json
