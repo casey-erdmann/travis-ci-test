@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       REPO: https://github.com/casey-erdmann/travis-ci-test
-      REMOTE_EXCLUDES_URL: https://raw.githubusercontent.com/casey-erdmann/travis-ci-test/master/gitleaks.toml
+      REMOTE_EXCLUDES_URL: https://raw.githubusercontent.com/casey-erdmann/ab2d-gitleaks-automation/master/gitleaks.toml
       GITLEAKS_VERSION: v3.0.3
     steps:
     - name: Execute Gitleaks
